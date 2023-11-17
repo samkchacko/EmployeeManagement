@@ -1,0 +1,13 @@
+<h1 class="text-danger" style="padding:3%">Edit Department</h1>
+<div class="row">
+    <div class="col">
+        <form style="padding: 4% 12% 2% 12%" [formGroup]="updateDept" (ngSubmit)="onUpdate()">
+            <div class="form-floating mb-3">
+                <input type="number" formControlName="id" class="form-control mt-2" id="id" [hidden]="true" placeholder="Enter the name">
+                <input type="text" formControlName="name" class="form-control mt-2" id="floatingInput" placeholder="Enter the name">
+                <label for="floatingInput">Enter the Department Name</label>
+                <input type="submit" value="Submit" class="btn btn-outline-danger mt-3">
+            </div>
+        </form>
+    </div>
+</div>

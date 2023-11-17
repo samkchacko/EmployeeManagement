@@ -1,0 +1,21 @@
+<h1 style="padding-top: 15%;display: inline-block;position: absolute; padding-left: 19%;">Login</h1>
+<div class="container" style="margin-left: 50%;padding-right: 50%; padding-top: 3%;margin-top:10%;display: inline-block;" >
+    <div class="row">
+        <div class="col">
+            <form [formGroup]="loginForm" (ngSubmit)="empLogin()">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" formControlName="email" placeholder="name@example.com">
+                    <label for="floatingInput">Email address</label>
+                  </div>
+                  <div class="form-floating">
+                    <input type="password" class="form-control" id="floatingPassword" formControlName="password" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                  </div>
+                  <div class="form-floating mt-3">
+                    <input type="submit" class="btn btn-outline-primary" value="Login" style="margin-right: 3%;">
+                    <input type="button" value="Register" class="btn btn-outline-danger" [routerLink]="['/register']">
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>

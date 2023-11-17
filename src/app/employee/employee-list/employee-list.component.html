@@ -1,0 +1,59 @@
+<h1 class="text-danger" style="padding: 1% 3% 0%;">List Employee</h1>
+<div class="row  mt-1" style="padding-left: 5%;padding-top: 0%;">
+  <div class="col mt-3" *ngFor="let emp of employeeArray">
+    <div class="card" style="width: 18rem;">
+      <div class="card-header">
+        Name:- <h3>{{emp.name.toUpperCase()}}</h3>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Department:- {{emp.department.name}}</li>
+        <!-- <li class="list-group-item">Department:- {{getDeptName(emp.departmentId)}}</li> -->
+        <li class="list-group-item">Gender:- {{getGender(emp.gender)}}</li>
+        <li class="list-group-item">Email:- {{emp.email}}</li>
+        <li class="list-group-item">DOB:- {{emp.dateOfBirth|date}}</li>
+        <li class="list-group-item">Mobile No:- {{emp.mobileNo}}</li>
+        <li class="list-group-item">Salary:- {{emp.salary|currency:'INR'}}</li>
+        <li class="list-group-item"><button class="btn btn-outline-light" style="margin-right: 5%;"
+            data-bs-toggle="modal" data-bs-target="#edit" (click)="editEmp(emp)">Edit</button>
+          <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete"
+            (click)="delId(emp)">Delete</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="delete" tabindex="-1" aria-labelledby="deleteLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="deleteLabel">Delete</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you wana delete Employee {{empName}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal"
+          (click)="empDelete(empId)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="edit" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editLabel">Edit</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you wana edit {{empName}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" [routerLink]="['/employee/edit',empId]">Edit</button>
+      </div>
+    </div>
+  </div>
+</div>

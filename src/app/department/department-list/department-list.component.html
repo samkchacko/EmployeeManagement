@@ -1,0 +1,40 @@
+<h1 class="text-danger" style="padding: 1% 3% 0%;">Department List</h1>
+<div class="row bg-dark" data-bs-theme="dark">
+    <div class="col" style="padding-left: 36%;padding-top: 0%;">
+        <table class="table table-dark bg-dark" style="width:40%;text-align: center;" data-bs-theme="dark">
+            <thead>
+              <tr class="table-dark ">
+                <th class="table-dark " scope="col">ID</th>
+                <th class="table-dark"scope="col">Departname Name</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-dark " *ngFor="let dept of departmentArray">
+                <td class="table-dark ">{{dept.id}}</td>
+                <td class="table-dark ">{{dept.name}}</td>
+                <td><button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#modal" (click)="addEdit(dept)">
+                  Edit
+                </button></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+<div class="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modalLabel">Edit</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you wana Update {{dpt}} Department
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-outline-danger"[routerLink]="['/department/edit',Deprt]" data-bs-dismiss="modal">Edit</button>
+      </div>
+    </div>
+  </div>
+</div>
