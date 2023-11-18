@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DepartmentServiceService } from 'src/app/department/department-service.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-employee-update',
@@ -18,7 +19,7 @@ export class EmployeeUpdateComponent implements OnInit {
   empEditForm!:FormGroup;
   maleVal: any;
   idnum!:number;
-  constructor(private empService:EmployeeServiceService,private route:ActivatedRoute,private router:Router,private deptservice:DepartmentServiceService){}
+  constructor(private empService:EmployeeServiceService,private route:ActivatedRoute,private router:Router,private deptservice:DepartmentServiceService,private datePipe:DatePipe){}
   ngOnInit(): void {
     this.idnum=this.route.snapshot.params['id']
     this.empEditForm=new FormGroup({
@@ -28,7 +29,7 @@ export class EmployeeUpdateComponent implements OnInit {
       gender: new FormControl(null, Validators.required),
       mobileNo: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
-      salary: new FormControl('', Validators.required),
+      salary: new FormControl('',[Validators.required,Validators.min(10000)]),
       departmentId: new FormControl('', Validators.required),
     })
     this.deptservice.getDept().subscribe(result=>{
@@ -42,7 +43,7 @@ export class EmployeeUpdateComponent implements OnInit {
       this.empEditForm.setValue({
         id:this.employee.id,
         name: this.employee.name,
-        dateOfBirth: this.employee.dateOfBirth,
+        dateOfBirth: this.datePipe.transform(this.employee.dateOfBirth,'yyyy-MM-dd'),
         gender: this.employee.gender,
         mobileNo:this.employee.mobileNo ,
         email: this.employee.email,

@@ -13,7 +13,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './autherization/login/login.component';
 import { RegisterComponent } from './autherization/register/register.component';
-
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './autherization/token.interceptor';
+import { DatePipe } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +35,7 @@ import { RegisterComponent } from './autherization/register/register.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:TokenInterceptor,multi:true},DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

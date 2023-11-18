@@ -12,10 +12,13 @@
             <div class="form-floating mb-3">
                 <input formControlName="name" type="text" class="form-control" id="name" placeholder="Enter your name">
                 <label for="name">Enter your name</label>
+                <div class="alert alert-danger mt-2" *ngIf="addEmpForm.hasError('required','name')&&(addEmpForm.controls['name'].touched||addEmpForm.controls['name'].dirty)">Name is required</div>
               </div>
               <div class="form-floating mb-3">
                 <input formControlName="email" type="email" class="form-control" id="email" placeholder="Enter your email">
                 <label for="email">Enter your Email</label>
+                <div class="alert alert-danger mt-2" *ngIf="addEmpForm.hasError('email','email')&&(addEmpForm.controls['email'].touched||addEmpForm.controls['email'].dirty)">Enter in Email format</div>
+                <div class="alert alert-danger mt-2" *ngIf="addEmpForm.hasError('required','email')&&(addEmpForm.controls['email'].touched||addEmpForm.controls['email'].dirty)">Email is required</div>
               </div>
               <!-- <div class="form-check form-check-inline mb-3">
                 <input formControlName="gender" class="form-check-input" type="radio" name="gender" id="male" value=2>
@@ -39,20 +42,25 @@
               <div class="form-floating mb-3">
                 <input formControlName="mobileNo" type="number" class="form-control" id="mobile" placeholder="MobileNo">
                 <label for="mobile">Enter the Mobile No</label>
+                <div class="alert alert-danger mt-2" *ngIf="addEmpForm.hasError('required','mobileNo')&&(addEmpForm.controls['mobileNo'].touched||addEmpForm.controls['mobileNo'].dirty)">Mobile is required</div>
               </div>
               <div class="form-floating mb-3">
                 <input formControlName="dateOfBirth" type="date" class="form-control" id="date">
                 <label for="date">Enter the DOB</label>
+                <div class="alert alert-danger mt-2" *ngIf="addEmpForm.hasError('required','dateOfBirth')&&(addEmpForm.controls['dateOfBirth'].touched||addEmpForm.controls['dateOfBirth'].dirty)">DOB is required</div>
               </div>
               <div class="form-floating mb-3">
                 <select formControlName="departmentId" class="form-select" aria-label="Default select example">
                     <option value="">Select the Department</option>
                     <option *ngFor="let dp of deptList" value={{dp.id}}>{{dp.name}}</option>
                   </select>
+                  <div class="alert alert-danger mt-2" *ngIf="addEmpForm.hasError('required','departmentId')&&(addEmpForm.controls['departmentId'].touched||addEmpForm.controls['departmentId'].dirty)">Department Id is required</div>
               </div>
               <div class="form-floating mb-3">
                 <input formControlName="salary" type="number" class="form-control" id="salary" placeholder="salary">
                 <label for="salary">Enter the Salary</label>
+                <div class="alert alert-danger mt-2" *ngIf="addEmpForm.hasError('min','salary')&&(addEmpForm.controls['salary'].touched||addEmpForm.controls['salary'].dirty)">Min salary is 10000 rupees</div>
+                <div class="alert alert-danger mt-2" *ngIf="addEmpForm.hasError('required','salary')&&(addEmpForm.controls['salary'].touched||addEmpForm.controls['salary'].dirty)">Salary is required</div>
               </div>
               <div class="row">
                 <div class="col">

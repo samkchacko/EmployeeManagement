@@ -6,6 +6,7 @@
             <div class="form-floating mb-3" >
             <input type="text" name="name" formControlName="name" id="name" class="form-control mt-2 " placeholder="Enter the Name">
             <label for="name">Enter the Department Name</label>
+            <div class="alert alert-danger mt-2" *ngIf="addDeptForm.hasError('required','name')&&(addDeptForm.controls['name'].touched||addDeptForm.controls['name'].dirty)">Name is required</div>
             <input type="submit" class="btn btn-outline-light mt-3" value="Submit">
             </div>
         </form>

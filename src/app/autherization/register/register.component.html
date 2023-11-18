@@ -7,14 +7,18 @@
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="name" placeholder="userName" formControlName="userName">
                     <label for="name">Enter the User Name</label>
+                    <div class="alert alert-danger mt-2" *ngIf="regForm.hasError('required','userName')&&(regForm.controls['userName'].touched||regForm.controls['userName'].dirty)">Name is required</div>
                   </div>
                 <div class="form-floating mb-3">
                     <input type="email" class="form-control" id="email" formControlName="email" placeholder="email">
                     <label for="email">Enter the Email address</label>
+                    <div class="alert alert-danger mt-2" *ngIf="regForm.hasError('required','email')&&(regForm.controls['email'].touched||regForm.controls['email'].dirty)">Email is required</div>
+                    <div class="alert alert-danger mt-2" *ngIf="regForm.hasError('email','email')&&(regForm.controls['email'].touched||regForm.controls['email'].dirty)">Email is required</div>
                   </div>
                   <div class="form-floating">
                     <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password">
                     <label for="floatingPassword">Enter the Password</label>
+                    <div class="alert alert-danger mt-2" *ngIf="regForm.hasError('required','password')&&(regForm.controls['password'].touched||regForm.controls['password'].dirty)">Password is required</div>
                   </div>
                   <input type="number" name="role" id="role" formControlName="role" [hidden]="true">
                   <div class="form-floating mt-3">

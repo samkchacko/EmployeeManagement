@@ -26,7 +26,7 @@ export class EmployeeAddComponent implements OnInit {
       gender: new FormControl(this.maleVal, Validators.required),
       mobileNo: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
-      salary: new FormControl('', Validators.required),
+      salary: new FormControl('', [Validators.required,Validators.min(10000)]),
       departmentId: new FormControl('', Validators.required),
     })
     this.deptSer.getDept().subscribe(result => {

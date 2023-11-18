@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AutherizationService } from './autherization/autherization.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'empdeptNG';
+  constructor(private authServices:AutherizationService){
+   // authServices.onLogout()
+  }
 }

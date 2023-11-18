@@ -6,6 +6,7 @@
                 <input type="number" formControlName="id" class="form-control mt-2" id="id" [hidden]="true" placeholder="Enter the name">
                 <input type="text" formControlName="name" class="form-control mt-2" id="floatingInput" placeholder="Enter the name">
                 <label for="floatingInput">Enter the Department Name</label>
+                <div class="alert alert-danger mt-2" *ngIf="updateDept.hasError('required','name')&&(updateDept.controls['name'].touched||updateDept.controls['name'].dirty)">Name is required</div>
                 <input type="submit" value="Submit" class="btn btn-outline-danger mt-3">
             </div>
         </form>

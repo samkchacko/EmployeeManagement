@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   empLogin(){
     this.authService.loginEmployee(this.loginForm.value).subscribe(result=>{
         this.loginResponse=result
-        console.log(this.loginResponse)
+        //console.log(this.loginResponse)
         this.router.navigate(['/department'])
     },err=>{
       console.log(err)

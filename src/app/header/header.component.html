@@ -1,9 +1,9 @@
-<div class="row">
+<div class="row" *ngIf="onLoggedin()">
   <div class="col">
     <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
       <div class="container-fluid">
         
-        <a class="navbar-brand" [routerLink]="['']">Employee Management</a>
+        <a class="navbar-brand">Employee Management</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
           aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -33,7 +33,7 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" [routerLink]="['']">Log Out</a>
+              <a class="nav-link active text-danger" aria-current="page" (click)="logOut()" [routerLink]="['']">Log Out</a>
             </li>
           </ul>
         </div>
