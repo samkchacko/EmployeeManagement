@@ -16,6 +16,7 @@ export class AutherizationService {
   registerEmp(user: User): Observable<void> {
     return this.client.post<void>(this.baseAuthApi, user)
   }
+  
   loginEmployee(user: UserDto):Observable<LoginResponseDto> {
     let login = this.client.post<LoginResponseDto>(`${this.baseAuthApi}/login`, user)
     login.subscribe(response=> {
