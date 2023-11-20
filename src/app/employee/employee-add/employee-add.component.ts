@@ -23,7 +23,7 @@ export class EmployeeAddComponent implements OnInit {
       id: new FormControl(0),
       name: new FormControl('', Validators.required),
       dateOfBirth: new FormControl('', Validators.required),
-      gender: new FormControl(this.maleVal, Validators.required),
+      gender: new FormControl('', Validators.required),
       mobileNo: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
       salary: new FormControl('', [Validators.required,Validators.min(10000)]),

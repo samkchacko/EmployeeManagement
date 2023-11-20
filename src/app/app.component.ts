@@ -9,6 +9,6 @@ import { AutherizationService } from './autherization/autherization.service';
 export class AppComponent {
   title = 'empdeptNG';
   constructor(private authServices:AutherizationService){
-   // authServices.onLogout()
+   authServices.onLogout()
   }
 }

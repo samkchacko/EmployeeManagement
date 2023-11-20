@@ -20,7 +20,14 @@
                     <label for="floatingPassword">Enter the Password</label>
                     <div class="alert alert-danger mt-2" *ngIf="regForm.hasError('required','password')&&(regForm.controls['password'].touched||regForm.controls['password'].dirty)">Password is required</div>
                   </div>
-                  <input type="number" name="role" id="role" formControlName="role" [hidden]="true">
+                  <div class="form-floting mt-3 i">
+                  <input type="radio" class="form-check-inline " name="role" id="roleE" formControlName="role" [value]="role.Employee">
+                  <label for="roleE">Employee</label>
+                  <input type="radio" class="form-check-inline" name="role" id="rolea" formControlName="role" [value]="role.Admin" style="margin-left: 2%;">
+                  <label for="rolea">Admin</label>
+                  <input type="radio" class="form-check-inline" name="role" id="roleh" formControlName="role" [value]="role.Hr" style="margin-left: 2%;">
+                  <label for="roleh">Hr</label>
+                </div>
                   <div class="form-floating mt-3">
                     <input type="submit" class="btn btn-outline-primary" value="Register" style="margin-right: 3%;">
                     <input type="button" value="Login" class="btn btn-outline-danger" [routerLink]="['']">

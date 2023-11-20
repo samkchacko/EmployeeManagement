@@ -20,25 +20,25 @@
                 <div class="alert alert-danger mt-2" *ngIf="addEmpForm.hasError('email','email')&&(addEmpForm.controls['email'].touched||addEmpForm.controls['email'].dirty)">Enter in Email format</div>
                 <div class="alert alert-danger mt-2" *ngIf="addEmpForm.hasError('required','email')&&(addEmpForm.controls['email'].touched||addEmpForm.controls['email'].dirty)">Email is required</div>
               </div>
-              <!-- <div class="form-check form-check-inline mb-3">
-                <input formControlName="gender" class="form-check-input" type="radio" name="gender" id="male" value=2>
+              <div class="form-check form-check-inline mb-3">
+                <input formControlName="gender" class="form-check-input" type="radio" name="gender" id="male" [value]="2">
                 <label class="form-check-label" for="male">
                   Male
                 </label>
               </div>
               <div class="form-check form-check-inline mb-3">
-                <input formControlName="gender" class="form-check-input" type="radio" name="gender" id="Female" value=1}>
+                <input formControlName="gender" class="form-check-input" type="radio" name="gender" id="Female" [value]="1">
                 <label class="form-check-label" for="female">
                   Female
                 </label>
-              </div> -->
-              <div class="form-floating mb-3">
+              </div>
+              <!-- <div class="form-floating mb-3">
                 <select formControlName="gender" class="form-select text-light" aria-label="Default select example" [hidden]="true">
                     <option value=" " selected>Select the Gender</option>
                     <option value=1>Female</option>
                     <option value="2">Male</option>
                   </select>
-              </div>
+              </div> -->
               <div class="form-floating mb-3">
                 <input formControlName="mobileNo" type="number" class="form-control" id="mobile" placeholder="MobileNo">
                 <label for="mobile">Enter the Mobile No</label>
